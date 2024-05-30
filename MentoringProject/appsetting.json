@@ -1,0 +1,13 @@
+{
+  "Authentication": {
+    "Google": {
+      "ClientId": "964416146759-m98o5btd3ndugt5ae085as0ulkp7ac3o.apps.googleusercontent.com",
+      "ClientSecret": "mentoringproject-424216",
+      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+      "token_uri": "https://oauth2.googleapis.com/token",
+      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+      "client_secret": "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",
+      "redirect_uris": [ "https://localhost:5007/oauth2callback" ]
+    }
+  }
+}
