@@ -1,4 +1,7 @@
 using MentoringProject.Components;
+using Google.Apis.Auth;
+using Google.Apis.YouTube.v3;
+using Microsoft.AspNetCore.Authentication.OAuth;
 
 var builder = WebApplication.CreateBuilder(args);
 
