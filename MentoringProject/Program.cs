@@ -1,10 +1,12 @@
 using MentoringProject.Components;
+using MentoringProject.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+builder.Services.AddHttpClient<YouTubeService>(); // Register YouTubeService here
 
 var app = builder.Build();
 

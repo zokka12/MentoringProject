@@ -1,0 +1,33 @@
+@page "/youtube"
+@using MentoringProject.Services
+@inject YouTubeService YouTubeService
+
+<h3>YouTube Video Search</h3>
+
+<input @bind="query" @bind:event="oninput" placeholder="Search for videos" />
+<button @onclick="SearchVideos">Search</button>
+
+@if (videos != null)
+{
+    <ul>
+        @foreach (var video in videos)
+        {
+            <li>
+                <h4>@video.Snippet.Title</h4>
+                <img src="@video.Snippet.Thumbnails.Default.Url" alt="@video.Snippet.Title" />
+                <p>@video.Snippet.Description</p>
+            </li>
+        }
+    </ul>
+}
+
+@code {
+    private string query;
+    private YouTubeVideo[] videos;
+
+    private async Task SearchVideos()
+    {
+        var response = await YouTubeService.SearchVideosAsync(query);
+        videos = response.Items;
+    }
+}
