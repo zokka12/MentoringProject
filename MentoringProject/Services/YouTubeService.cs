@@ -7,7 +7,7 @@ namespace MentoringProject.Services
     public class YouTubeService
     {
         private readonly HttpClient _httpClient;
-        private const string apiKey = "AIzaSyCb116AMIp-luEFhLMd7N044Y11akn03_w";
+        private const string apiKey = "";
         private const string baseUrl = "https://www.googleapis.com/youtube/v3/";
         private readonly ILogger<YouTubeService> _logger;
 
