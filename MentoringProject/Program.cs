@@ -8,6 +8,11 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddHttpClient<YouTubeService>(); // Register YouTubeService here
 
+// Configure logging
+builder.Logging.ClearProviders();
+builder.Logging.SetMinimumLevel(LogLevel.Information); // Set minimum log level
+builder.Logging.AddConsole(); // Enable console logging
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

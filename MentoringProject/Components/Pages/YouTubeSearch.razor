@@ -23,12 +23,12 @@
 }
 
 @code {
-    private string query;
-    private YouTubeVideo[] videos;
+    private string? query;
+    private YouTubeVideo[]? videos;
 
     private async Task SearchVideos()
     {
         var response = await YouTubeService.SearchVideosAsync(query);
-        videos = response.Items;
+        videos = response?.Items;
     }
 }

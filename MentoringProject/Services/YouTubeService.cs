@@ -7,17 +7,25 @@ namespace MentoringProject.Services
     public class YouTubeService
     {
         private readonly HttpClient _httpClient;
-        private const string apiKey = "YOUR_API_KEY";
+        private const string apiKey = "AIzaSyCb116AMIp-luEFhLMd7N044Y11akn03_w";
         private const string baseUrl = "https://www.googleapis.com/youtube/v3/";
+        private readonly ILogger<YouTubeService> _logger;
 
-        public YouTubeService(HttpClient httpClient)
+        public YouTubeService(HttpClient httpClient, ILogger<YouTubeService> logger)
         {
             _httpClient = httpClient;
+            _logger = logger;
         }
 
-        public async Task<YouTubeSearchResponse> SearchVideosAsync(string query)
+        public async Task<YouTubeSearchResponse?> SearchVideosAsync(string? query)
         {
-            var url = $"{baseUrl}search?part=snippet&q={query}&key={apiKey}";
+            _logger.LogInformation("The search has started.");
+
+            var q = query ?? ".NET";
+            var url = $"{baseUrl}search?part=snippet&q={q}&key={apiKey}";
+
+            _logger.LogInformation("Requested URL: {Url}", url);  // Use a static string template with a placeholder.
+
             return await _httpClient.GetFromJsonAsync<YouTubeSearchResponse>(url);
         }
     }
