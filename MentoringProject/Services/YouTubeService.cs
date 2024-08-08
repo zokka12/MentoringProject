@@ -19,7 +19,7 @@ namespace MentoringProject.Services
 
         public async Task<YouTubeSearchResponse?> SearchVideosAsync(string? query)
         {
-            _logger.LogInformation("The search has started.");
+            _logger.LogInformation("The search has started with {Query}.", query);
 
             var q = query ?? ".NET";
             var url = $"{baseUrl}search?part=snippet&q={q}&key={apiKey}";
